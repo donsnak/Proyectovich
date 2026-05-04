@@ -71,7 +71,7 @@ nav a:hover{
 .cart-icon{
     position:relative;
     cursor:pointer;
-    font-size:1.3rem;
+    font-size:1.4rem;
 }
 
 .cart-count{
@@ -80,13 +80,13 @@ nav a:hover{
     right:-10px;
     background:#00ff88;
     color:black;
-    width:20px;
-    height:20px;
+    width:22px;
+    height:22px;
     border-radius:50%;
-    font-size:0.8rem;
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
+    font-size:0.75rem;
     font-weight:700;
 }
 
@@ -105,6 +105,7 @@ nav a:hover{
     justify-content:center;
     align-items:center;
     text-align:center;
+    padding:20px;
 }
 
 .hero h1{
@@ -112,8 +113,8 @@ nav a:hover{
 }
 
 .hero p{
-    margin-top:15px;
     color:#ccc;
+    margin-top:15px;
 }
 
 .hero button{
@@ -122,6 +123,7 @@ nav a:hover{
     border:none;
     border-radius:50px;
     background:#00ff88;
+    color:black;
     font-weight:700;
     cursor:pointer;
     transition:0.3s;
@@ -150,7 +152,7 @@ nav a:hover{
     font-size:1rem;
 }
 
-/* TITULO */
+/* TITULOS */
 
 .section-title{
     text-align:center;
@@ -173,13 +175,13 @@ nav a:hover{
     background:#181818;
     border-radius:25px;
     overflow:hidden;
-    transition:0.4s;
     border:1px solid #222;
+    transition:0.4s;
 }
 
 .card:hover{
     transform:translateY(-10px);
-    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+    box-shadow:0 20px 40px rgba(0,0,0,0.5);
 }
 
 .card img{
@@ -218,7 +220,7 @@ nav a:hover{
 
 .buy-btn{
     width:100%;
-    padding:12px;
+    padding:13px;
     border:none;
     border-radius:14px;
     background:white;
@@ -236,53 +238,116 @@ nav a:hover{
 
 .cart-panel{
     position:fixed;
-    right:-400px;
     top:0;
-    width:350px;
+    right:-420px;
+    width:380px;
     height:100%;
     background:#151515;
     border-left:1px solid #222;
-    padding:20px;
-    transition:0.4s;
     z-index:2000;
+    transition:0.4s;
     overflow-y:auto;
+    padding:25px;
 }
 
 .cart-panel.active{
     right:0;
 }
 
+.cart-panel h2{
+    margin-bottom:25px;
+}
+
 .cart-item{
-    margin:15px 0;
-    padding:10px;
-    border-bottom:1px solid #333;
+    background:#1c1c1c;
+    border:1px solid #2a2a2a;
+    border-radius:18px;
+    padding:15px;
+    margin-bottom:15px;
+}
+
+.cart-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.remove-btn{
+    background:#222;
+    color:white;
+    border:none;
+    width:35px;
+    height:35px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:0.3s;
+    font-size:1rem;
+}
+
+.remove-btn:hover{
+    background:red;
+}
+
+.quantity-controls{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:15px;
+}
+
+.qty-btn{
+    width:30px;
+    height:30px;
+    border:none;
+    border-radius:8px;
+    background:#00ff88;
+    color:black;
+    font-weight:700;
+    cursor:pointer;
 }
 
 .total{
-    font-size:1.3rem;
+    font-size:1.4rem;
     margin-top:20px;
     color:#00ff88;
     font-weight:700;
 }
 
-.whatsapp-btn{
-    width:100%;
-    margin-top:20px;
+.cart-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    margin-top:25px;
+}
+
+.clear-btn{
     padding:14px;
     border:none;
-    border-radius:15px;
+    border-radius:14px;
+    background:#222;
+    color:white;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.whatsapp-btn{
+    padding:14px;
+    border:none;
+    border-radius:14px;
     background:#25D366;
     color:white;
     font-weight:700;
     cursor:pointer;
 }
 
+/* FOOTER */
+
 footer{
     margin-top:80px;
     padding:40px;
     text-align:center;
+    color:#888;
     border-top:1px solid #222;
-    color:#aaa;
 }
 
 /* RESPONSIVE */
@@ -295,6 +360,10 @@ footer{
 
 nav{
     display:none;
+}
+
+.cart-panel{
+    width:100%;
 }
 
 }
@@ -334,7 +403,10 @@ CAMISO<span>VICH</span>
 <div>
 
 <h1>Camisas de Fútbol</h1>
-<p>La tienda más elegante para fanáticos del fútbol</p>
+
+<p>
+La tienda más elegante para fanáticos del fútbol
+</p>
 
 <button onclick="document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})">
 Ver catálogo
@@ -347,22 +419,33 @@ Ver catálogo
 <!-- BUSCADOR -->
 
 <div class="search-box">
-<input type="text" id="searchInput" placeholder="Buscar equipo...">
+
+<input
+type="text"
+id="searchInput"
+placeholder="Buscar equipo..."
+>
+
 </div>
 
-<h2 class="section-title" id="catalogo">Destacados</h2>
+<h2 class="section-title" id="catalogo">
+Destacados
+</h2>
 
 <!-- PRODUCTOS -->
 
-<section class="products" id="product-list">
+<section class="products">
 
-<div class="card" data-name="Barcelona">
+<!-- BARCELONA -->
+
+<div class="card" data-name="barcelona">
 
 <img src="Barca1.png">
 
 <div class="card-content">
 
 <h3>Barcelona 24/25</h3>
+
 <div class="price">$799 MXN</div>
 
 <div class="sizes">
@@ -372,21 +455,26 @@ Ver catálogo
 <span>XL</span>
 </div>
 
-<button class="buy-btn"
-onclick="addToCart('Barcelona 24/25',799)">
+<button
+class="buy-btn"
+onclick="addToCart('Barcelona 24/25',799)"
+>
 Agregar al carrito
 </button>
 
 </div>
 </div>
 
-<div class="card" data-name="Real Madrid">
+<!-- REAL MADRID -->
+
+<div class="card" data-name="real madrid">
 
 <img src="Real1.png">
 
 <div class="card-content">
 
 <h3>Real Madrid 24/25</h3>
+
 <div class="price">$799 MXN</div>
 
 <div class="sizes">
@@ -396,21 +484,26 @@ Agregar al carrito
 <span>XL</span>
 </div>
 
-<button class="buy-btn"
-onclick="addToCart('Real Madrid 24/25',799)">
+<button
+class="buy-btn"
+onclick="addToCart('Real Madrid 24/25',799)"
+>
 Agregar al carrito
 </button>
 
 </div>
 </div>
 
-<div class="card" data-name="Liverpool">
+<!-- LIVERPOOL -->
+
+<div class="card" data-name="liverpool">
 
 <img src="r1.png">
 
 <div class="card-content">
 
 <h3>Liverpool 24/25</h3>
+
 <div class="price">$799 MXN</div>
 
 <div class="sizes">
@@ -420,8 +513,10 @@ Agregar al carrito
 <span>XL</span>
 </div>
 
-<button class="buy-btn"
-onclick="addToCart('Liverpool 24/25',799)">
+<button
+class="buy-btn"
+onclick="addToCart('Liverpool 24/25',799)"
+>
 Agregar al carrito
 </button>
 
@@ -442,9 +537,17 @@ Agregar al carrito
 Total: $0 MXN
 </div>
 
+<div class="cart-buttons">
+
+<button class="clear-btn" onclick="clearCart()">
+Vaciar carrito
+</button>
+
 <button class="whatsapp-btn" onclick="sendWhatsApp()">
 Finalizar pedido por WhatsApp
 </button>
+
+</div>
 
 </div>
 
@@ -454,32 +557,105 @@ Finalizar pedido por WhatsApp
 
 <script>
 
-let cart = [];
+/* =========================
+   CARRITO
+========================= */
+
+let cart =
+JSON.parse(localStorage.getItem("cart")) || [];
+
+/* AGREGAR */
 
 function addToCart(name, price){
 
-cart.push({name, price});
+const existingProduct =
+cart.find(item => item.name === name);
+
+if(existingProduct){
+
+existingProduct.quantity++;
+
+}else{
+
+cart.push({
+name,
+price,
+quantity:1
+});
+
+}
 
 updateCart();
 
 }
 
+/* ACTUALIZAR */
+
 function updateCart(){
 
-const cartItems = document.getElementById("cart-items");
+const cartItems =
+document.getElementById("cart-items");
 
 cartItems.innerHTML = "";
 
 let total = 0;
+let totalItems = 0;
 
 cart.forEach((item,index)=>{
 
-total += item.price;
+const subtotal =
+item.price * item.quantity;
+
+total += subtotal;
+
+totalItems += item.quantity;
 
 cartItems.innerHTML += `
 
 <div class="cart-item">
-${item.name} - $${item.price} MXN
+
+<div class="cart-top">
+
+<div>
+<b>${item.name}</b><br>
+$${item.price} MXN
+</div>
+
+<button
+class="remove-btn"
+onclick="removeFromCart(${index})"
+>
+🗑️
+</button>
+
+</div>
+
+<div class="quantity-controls">
+
+<button
+class="qty-btn"
+onclick="decreaseQuantity(${index})"
+>
+-
+</button>
+
+<span>
+${item.quantity}
+</span>
+
+<button
+class="qty-btn"
+onclick="increaseQuantity(${index})"
+>
++
+</button>
+
+</div>
+
+<div style="margin-top:10px; color:#00ff88; font-weight:700;">
+Subtotal: $${subtotal} MXN
+</div>
+
 </div>
 
 `;
@@ -490,13 +666,69 @@ document.getElementById("total").innerText =
 `Total: $${total} MXN`;
 
 document.getElementById("cart-count").innerText =
-cart.length;
+totalItems;
+
+localStorage.setItem(
+"cart",
+JSON.stringify(cart)
+);
 
 }
 
+/* ELIMINAR */
+
+function removeFromCart(index){
+
+cart.splice(index,1);
+
+updateCart();
+
+}
+
+/* AUMENTAR */
+
+function increaseQuantity(index){
+
+cart[index].quantity++;
+
+updateCart();
+
+}
+
+/* DISMINUIR */
+
+function decreaseQuantity(index){
+
+if(cart[index].quantity > 1){
+
+cart[index].quantity--;
+
+}else{
+
+cart.splice(index,1);
+
+}
+
+updateCart();
+
+}
+
+/* VACIAR */
+
+function clearCart(){
+
+cart = [];
+
+updateCart();
+
+}
+
+/* TOGGLE PANEL */
+
 function toggleCart(){
 
-document.getElementById("cartPanel")
+document
+.getElementById("cartPanel")
 .classList.toggle("active");
 
 }
@@ -513,15 +745,20 @@ return;
 
 }
 
-let message = "Hola, quiero pedir:%0A";
+let message =
+"Hola, quiero pedir:%0A%0A";
 
 let total = 0;
 
 cart.forEach(item=>{
 
-message += `- ${item.name} $${item.price} MXN%0A`;
+const subtotal =
+item.price * item.quantity;
 
-total += item.price;
+message +=
+`• ${item.name} x${item.quantity} - $${subtotal} MXN%0A`;
+
+total += subtotal;
 
 });
 
@@ -560,6 +797,10 @@ name.includes(value)
 });
 
 });
+
+/* INICIAR */
+
+updateCart();
 
 </script>
 
