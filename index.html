@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>CAMISOVICH</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+/* =========================
+   GENERAL
+========================= */
 
 *{
     margin:0;
@@ -23,7 +30,9 @@ body{
     color:white;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 header{
     position:sticky;
@@ -66,12 +75,14 @@ nav a:hover{
     color:#00ff88;
 }
 
-/* CARRITO */
+/* =========================
+   CARRITO ICONO
+========================= */
 
 .cart-icon{
     position:relative;
     cursor:pointer;
-    font-size:1.4rem;
+    font-size:1.5rem;
 }
 
 .cart-count{
@@ -84,16 +95,19 @@ nav a:hover{
     height:22px;
     border-radius:50%;
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     font-size:0.75rem;
     font-weight:700;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero{
     height:70vh;
+
     background:
     linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
     url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1400&auto=format&fit=crop');
@@ -133,7 +147,9 @@ nav a:hover{
     transform:scale(1.05);
 }
 
-/* SEARCH */
+/* =========================
+   BUSCADOR
+========================= */
 
 .search-box{
     max-width:500px;
@@ -152,7 +168,9 @@ nav a:hover{
     font-size:1rem;
 }
 
-/* TITULOS */
+/* =========================
+   TITULOS
+========================= */
 
 .section-title{
     text-align:center;
@@ -160,7 +178,9 @@ nav a:hover{
     margin:40px 0;
 }
 
-/* PRODUCTOS */
+/* =========================
+   PRODUCTOS
+========================= */
 
 .products{
     max-width:1400px;
@@ -181,7 +201,7 @@ nav a:hover{
 
 .card:hover{
     transform:translateY(-10px);
-    box-shadow:0 20px 40px rgba(0,0,0,0.5);
+    box-shadow:0 20px 40px rgba(0,0,0,0.4);
 }
 
 .card img{
@@ -205,18 +225,40 @@ nav a:hover{
     margin-bottom:15px;
 }
 
+/* =========================
+   TALLAS
+========================= */
+
 .sizes{
     display:flex;
     gap:10px;
     margin-bottom:20px;
 }
 
-.sizes span{
+.size-btn{
     border:1px solid #444;
-    padding:5px 10px;
+    background:transparent;
+    color:white;
+    padding:8px 12px;
     border-radius:10px;
-    font-size:0.8rem;
+    cursor:pointer;
+    transition:0.3s;
 }
+
+.size-btn:hover{
+    border-color:#00ff88;
+    color:#00ff88;
+}
+
+.size-btn.active{
+    background:#00ff88;
+    color:black;
+    border-color:#00ff88;
+}
+
+/* =========================
+   BOTON COMPRAR
+========================= */
 
 .buy-btn{
     width:100%;
@@ -234,7 +276,9 @@ nav a:hover{
     background:#00ff88;
 }
 
-/* PANEL CARRITO */
+/* =========================
+   PANEL CARRITO
+========================= */
 
 .cart-panel{
     position:fixed;
@@ -281,12 +325,15 @@ nav a:hover{
     border-radius:10px;
     cursor:pointer;
     transition:0.3s;
-    font-size:1rem;
 }
 
 .remove-btn:hover{
     background:red;
 }
+
+/* =========================
+   CANTIDAD
+========================= */
 
 .quantity-controls{
     display:flex;
@@ -306,12 +353,20 @@ nav a:hover{
     cursor:pointer;
 }
 
+/* =========================
+   TOTAL
+========================= */
+
 .total{
     font-size:1.4rem;
     margin-top:20px;
     color:#00ff88;
     font-weight:700;
 }
+
+/* =========================
+   BOTONES CARRITO
+========================= */
 
 .cart-buttons{
     display:flex;
@@ -340,7 +395,9 @@ nav a:hover{
     cursor:pointer;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
     margin-top:80px;
@@ -350,7 +407,9 @@ footer{
     border-top:1px solid #222;
 }
 
-/* RESPONSIVE */
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media(max-width:768px){
 
@@ -369,9 +428,14 @@ nav{
 }
 
 </style>
+
 </head>
 
 <body>
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
@@ -388,15 +452,22 @@ CAMISO<span>VICH</span>
 </nav>
 
 <div class="cart-icon" onclick="toggleCart()">
+
 🛒
-<div class="cart-count" id="cart-count">0</div>
+
+<div class="cart-count" id="cart-count">
+0
+</div>
+
 </div>
 
 </div>
 
 </header>
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
@@ -416,7 +487,9 @@ Ver catálogo
 
 </section>
 
-<!-- BUSCADOR -->
+<!-- =========================
+     BUSCADOR
+========================= -->
 
 <div class="search-box">
 
@@ -432,7 +505,9 @@ placeholder="Buscar equipo..."
 Destacados
 </h2>
 
-<!-- PRODUCTOS -->
+<!-- =========================
+     PRODUCTOS
+========================= -->
 
 <section class="products">
 
@@ -449,15 +524,15 @@ Destacados
 <div class="price">$799 MXN</div>
 
 <div class="sizes">
-<span>S</span>
-<span>M</span>
-<span>L</span>
-<span>XL</span>
+<button class="size-btn active">S</button>
+<button class="size-btn">M</button>
+<button class="size-btn">L</button>
+<button class="size-btn">XL</button>
 </div>
 
 <button
 class="buy-btn"
-onclick="addToCart('Barcelona 24/25',799)"
+onclick="addToCart(this,'Barcelona 24/25',799)"
 >
 Agregar al carrito
 </button>
@@ -478,15 +553,15 @@ Agregar al carrito
 <div class="price">$799 MXN</div>
 
 <div class="sizes">
-<span>S</span>
-<span>M</span>
-<span>L</span>
-<span>XL</span>
+<button class="size-btn active">S</button>
+<button class="size-btn">M</button>
+<button class="size-btn">L</button>
+<button class="size-btn">XL</button>
 </div>
 
 <button
 class="buy-btn"
-onclick="addToCart('Real Madrid 24/25',799)"
+onclick="addToCart(this,'Real Madrid 24/25',799)"
 >
 Agregar al carrito
 </button>
@@ -507,15 +582,15 @@ Agregar al carrito
 <div class="price">$799 MXN</div>
 
 <div class="sizes">
-<span>S</span>
-<span>M</span>
-<span>L</span>
-<span>XL</span>
+<button class="size-btn active">S</button>
+<button class="size-btn">M</button>
+<button class="size-btn">L</button>
+<button class="size-btn">XL</button>
 </div>
 
 <button
 class="buy-btn"
-onclick="addToCart('Liverpool 24/25',799)"
+onclick="addToCart(this,'Liverpool 24/25',799)"
 >
 Agregar al carrito
 </button>
@@ -525,7 +600,9 @@ Agregar al carrito
 
 </section>
 
-<!-- PANEL CARRITO -->
+<!-- =========================
+     PANEL CARRITO
+========================= -->
 
 <div class="cart-panel" id="cartPanel">
 
@@ -551,9 +628,17 @@ Finalizar pedido por WhatsApp
 
 </div>
 
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 © 2026 CAMISOVICH
 </footer>
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 
 <script>
 
@@ -564,12 +649,24 @@ Finalizar pedido por WhatsApp
 let cart =
 JSON.parse(localStorage.getItem("cart")) || [];
 
-/* AGREGAR */
+/* =========================
+   AGREGAR PRODUCTO
+========================= */
 
-function addToCart(name, price){
+function addToCart(button,name,price){
+
+const card =
+button.closest(".card");
+
+const selectedSize =
+card.querySelector(".size-btn.active").innerText;
 
 const existingProduct =
-cart.find(item => item.name === name);
+cart.find(
+item =>
+item.name === name &&
+item.size === selectedSize
+);
 
 if(existingProduct){
 
@@ -580,6 +677,7 @@ existingProduct.quantity++;
 cart.push({
 name,
 price,
+size:selectedSize,
 quantity:1
 });
 
@@ -589,7 +687,9 @@ updateCart();
 
 }
 
-/* ACTUALIZAR */
+/* =========================
+   ACTUALIZAR CARRITO
+========================= */
 
 function updateCart(){
 
@@ -617,8 +717,13 @@ cartItems.innerHTML += `
 <div class="cart-top">
 
 <div>
+
 <b>${item.name}</b><br>
+
+Talla: ${item.size}<br>
+
 $${item.price} MXN
+
 </div>
 
 <button
@@ -653,7 +758,9 @@ onclick="increaseQuantity(${index})"
 </div>
 
 <div style="margin-top:10px; color:#00ff88; font-weight:700;">
+
 Subtotal: $${subtotal} MXN
+
 </div>
 
 </div>
@@ -675,7 +782,9 @@ JSON.stringify(cart)
 
 }
 
-/* ELIMINAR */
+/* =========================
+   ELIMINAR
+========================= */
 
 function removeFromCart(index){
 
@@ -685,7 +794,9 @@ updateCart();
 
 }
 
-/* AUMENTAR */
+/* =========================
+   AUMENTAR
+========================= */
 
 function increaseQuantity(index){
 
@@ -695,7 +806,9 @@ updateCart();
 
 }
 
-/* DISMINUIR */
+/* =========================
+   DISMINUIR
+========================= */
 
 function decreaseQuantity(index){
 
@@ -713,7 +826,9 @@ updateCart();
 
 }
 
-/* VACIAR */
+/* =========================
+   VACIAR
+========================= */
 
 function clearCart(){
 
@@ -723,7 +838,9 @@ updateCart();
 
 }
 
-/* TOGGLE PANEL */
+/* =========================
+   ABRIR CARRITO
+========================= */
 
 function toggleCart(){
 
@@ -733,7 +850,9 @@ document
 
 }
 
-/* WHATSAPP */
+/* =========================
+   WHATSAPP
+========================= */
 
 function sendWhatsApp(){
 
@@ -756,7 +875,7 @@ const subtotal =
 item.price * item.quantity;
 
 message +=
-`• ${item.name} x${item.quantity} - $${subtotal} MXN%0A`;
+`• ${item.name} | Talla ${item.size} | x${item.quantity} | $${subtotal} MXN%0A`;
 
 total += subtotal;
 
@@ -771,7 +890,9 @@ window.open(
 
 }
 
-/* BUSCADOR */
+/* =========================
+   BUSCADOR
+========================= */
 
 const searchInput =
 document.getElementById("searchInput");
@@ -798,7 +919,34 @@ name.includes(value)
 
 });
 
-/* INICIAR */
+/* =========================
+   SELECCION TALLAS
+========================= */
+
+document.querySelectorAll(".sizes").forEach(container=>{
+
+const buttons =
+container.querySelectorAll(".size-btn");
+
+buttons.forEach(button=>{
+
+button.addEventListener("click", ()=>{
+
+buttons.forEach(btn=>
+btn.classList.remove("active")
+);
+
+button.classList.add("active");
+
+});
+
+});
+
+});
+
+/* =========================
+   INICIAR
+========================= */
 
 updateCart();
 
