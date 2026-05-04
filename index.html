@@ -1,0 +1,371 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Football Store</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #0f0f0f;
+      color: white;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15,15,15,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #222;
+    }
+
+    .navbar {
+      max-width: 1400px;
+      margin: auto;
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #00ff88;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: #00ff88;
+    }
+
+    .hero {
+      height: 70vh;
+      background:
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1400&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 4rem;
+      margin-bottom: 15px;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      color: #ddd;
+      margin-bottom: 30px;
+    }
+
+    .hero-content button {
+      padding: 14px 35px;
+      border: none;
+      background: #00ff88;
+      color: black;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 1rem;
+    }
+
+    .hero-content button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0,255,136,0.4);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin: 70px 0 40px;
+    }
+
+    .products {
+      max-width: 1400px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 0 40px 80px;
+    }
+
+    .card {
+      background: #181818;
+      border-radius: 22px;
+      overflow: hidden;
+      transition: 0.4s;
+      border: 1px solid #222;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    }
+
+    .card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      transition: 0.4s;
+    }
+
+    .card:hover img {
+      transform: scale(1.05);
+    }
+
+    .badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: #00ff88;
+      color: black;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-content h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      color: #00ff88;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .sizes {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .sizes span {
+      border: 1px solid #444;
+      padding: 6px 10px;
+      border-radius: 10px;
+      font-size: 0.8rem;
+    }
+
+    .buy-btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 14px;
+      background: white;
+      color: black;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .buy-btn:hover {
+      background: #00ff88;
+    }
+
+    footer {
+      border-top: 1px solid #222;
+      padding: 40px 20px;
+      text-align: center;
+      color: #aaa;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .navbar {
+        padding: 15px 20px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .products {
+        padding: 0 20px 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="navbar">
+      <div class="logo">FOOT<span>STORE</span></div>
+
+      <nav>
+        <a href="#">Inicio</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#">Nuevos</a>
+        <a href="#">Ofertas</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Camisas de Fútbol</h1>
+      <p>Catálogo premium inspirado en tiendas modernas</p>
+      <button onclick="document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})">
+        Ver catálogo
+      </button>
+    </div>
+  </section>
+
+  <h2 class="section-title" id="catalogo">Destacados</h2>
+
+  <section class="products">
+
+    <div class="card">
+      <div class="badge">Nuevo</div>
+      <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=1000&auto=format&fit=crop" alt="Camisa">
+
+      <div class="card-content">
+        <h3>Real Madrid Local 24/25</h3>
+        <div class="price">$699 MXN</div>
+
+        <div class="sizes">
+          <span>S</span>
+          <span>M</span>
+          <span>L</span>
+          <span>XL</span>
+        </div>
+
+        <button class="buy-btn">Comprar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="badge">Top</div>
+      <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=1000&auto=format&fit=crop" alt="Camisa">
+
+      <div class="card-content">
+        <h3>Barcelona Visitante 24/25</h3>
+        <div class="price">$749 MXN</div>
+
+        <div class="sizes">
+          <span>S</span>
+          <span>M</span>
+          <span>L</span>
+          <span>XL</span>
+        </div>
+
+        <button class="buy-btn">Comprar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="badge">Oferta</div>
+      <img src="https://images.unsplash.com/photo-1547347298-4074fc3086f0?q=80&w=1000&auto=format&fit=crop" alt="Camisa">
+
+      <div class="card-content">
+        <h3>México Edición Especial</h3>
+        <div class="price">$599 MXN</div>
+
+        <div class="sizes">
+          <span>S</span>
+          <span>M</span>
+          <span>L</span>
+          <span>XL</span>
+        </div>
+
+        <button class="buy-btn">Comprar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="badge">Premium</div>
+      <img src="https://images.unsplash.com/photo-1508098682722-e99c643e7485?q=80&w=1000&auto=format&fit=crop" alt="Camisa">
+
+      <div class="card-content">
+        <h3>Manchester City 24/25</h3>
+        <div class="price">$799 MXN</div>
+
+        <div class="sizes">
+          <span>S</span>
+          <span>M</span>
+          <span>L</span>
+          <span>XL</span>
+        </div>
+
+        <button class="buy-btn">Comprar</button>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    © 2026 FOOTSTORE | Catálogo de Camisas de Fútbol
+  </footer>
+
+</body>
+</html>
+```
+
+---
+
+# Cómo subirla a GitHub Pages
+
+1. Crea un repositorio nuevo en GitHub.
+2. Sube el archivo `index.html`.
+3. Ve a:
+
+   * Settings
+   * Pages
+4. En "Branch" selecciona:
+
+   * `main`
+   * `/root`
+5. Guarda los cambios.
+6. GitHub te dará un enlace como:
+
+```txt
+https://usuario.github.io/repositorio/
+```
+
+Tu página quedará publicada automáticamente.
